@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head('new topic')">
+
+</head>
+<body>
+    <div class="container" th:if="${topic != null}">
+        <h3 th:text="${topic.topicName}">
+        </h3>
+        <h5 th:text="${topic.topicDescription}">
+
+        </h5>
+    </div>
+
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <ul class="tabs">
+                <!--existing tabs-->
+                <li th:each="tabItem : ${topic.tabItems}" class="tab col s3">
+                    <a class="active" th:href="'#' + ${tabItem.id}"
+                       th:text="${tabItem.tabName}">
+                    </a>
+                </li>
+                <!--add a tab-->
+                <li class="tab col s3" id = "addATab">
+
+                    <a href="#tabForm" class= "modal-trigger">
+                        <i class="material-icons">add</i>
+                    </a>
+
+                    <!--This is the modal-->
+                    <div class="modal" id = "tabForm">
+                        <form class="col s12" th:action="@{/addtabitem}"  th:object="${tabItem}"method="post">
+                            <div class="input-field col s12 l12">
+                                <input type="hidden" id="topic.id" name="topic.id"
+                                       th:value="${topic.id}"/>
+                                <div class="row">
+                                    <div class="input-field col s12 l6">
+                                        <input type="text" id="tabName" name="tabName">
+                                        <label for="tabName">Tab Name</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12 l6">
+                                        <input type="text" id="toolCode" name="toolCode">
+                                        <label for="toolCode">Tool Code</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12 l12">
+                                        <input type="text" id="tabUrl"
+                                               name="tabUrl">
+                                        <label for="tabUrl">Enter Content Link</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <select name="typeOfContent" class = "col s6 l6">
+                                        <option value="" disabled selected>TYPE OF CONTENT</option>
+                                        <option value="DOCUMENT">DOCUMENT</option>
+                                        <option value="VIDEO">VIDEO</option>
+                                        <option value="SIMULATION">SIMULATION</option>
+                                        <option value="OTHER">OTHER</option>
+                                    </select>
+                                </div>
+                                <div class="right-align">
+                                    <button class="waves-effect waves-light btn" id="createTopic" type="submit"
+                                    >New Tab</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                </li>
+                <li class="tab col s3" id = "editATab">
+
+                    <a href="#tabForm" class= "modal-trigger">
+                        <i class="material-icons">edit</i>
+                    </a>
+                </li>
+
+            </ul>
+
+            <br>
+            <!--tab content-->
+
+                <div th:each="tabItem : ${topic.tabItems}" class="video-container"
+                     th:id="${tabItem.id}">
+
+                    <iframe width = "1200" height = "800" th:src ="${tabItem.tabUrl}"></iframe>
+                </div>
+
+        </div>
+    </div>
+</div>
+
+    <!--<div class="container">-->
+        <!--<h2>Modals</h2>-->
+        <!--<a href="#terms" class="btn orange modal-trigger">Terms and Conditions</a>-->
+
+        <!--<div class="modal" id = "terms">-->
+
+            <!--test-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+
+
+
+<div th:replace="layout :: scripts"></div>
+</body>
+</html>

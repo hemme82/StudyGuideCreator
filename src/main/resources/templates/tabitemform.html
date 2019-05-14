@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head('new tab')">
+
+</head>
+<body>
+
+<div class="row">
+    <form class="col s12" th:action="@{/addtabitem}"  th:object="${tabItem}"method="post">
+        <div class="input-field col s12 l8">
+            <fieldset>
+                <input type="hidden" id="topic.id" name="topic.id"/>
+                <div class="row">
+                    <div class="input-field col s6 l4">
+                        <input type="text" id="tabName" name="tabName">
+                        <label for="tabName">Tab Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input type="text" id="tabUrl"
+                               name="tabUrl">
+                        <label for="tabUrl">Enter Content Link</label>
+                    </div>
+                </div>
+                <select name="typeOfContent">
+                    <option value="" disabled selected>Type of Content</option>
+                    <option value="DOCUMENT">DOCUMENT</option>
+                    <option value="2">VIDEO</option>
+                    <option value="3">SIMULATION</option>
+                    <option value="4">OTHER</option>
+                </select>
+                <label>Type Of Content</label>
+                <div class="row">
+                    <div class="col s12 l8">
+                        <button class="waves-effect waves-light btn" id="createTopic" type="submit"
+                        >New Tab</button>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </form>
+</div>
+
+<div th:replace="layout :: scripts"></div>
+</body>
+</html>

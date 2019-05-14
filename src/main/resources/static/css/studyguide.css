@@ -1,0 +1,52 @@
+#editATab{
+    max-width: 75px;
+    border-style: solid;
+    border-width: 0px 0px 0px 0.2px;
+    border-color: black;
+}
+
+#addATab{
+    max-width: 75px;
+    border-style: solid;
+    border-width: 0px 0px 0px 0.2px;
+    border-color: black;
+
+}
+.modal {
+    width: 50% !important;
+    height: 75% !important;
+}
+.tab{
+    /*border-style: solid;
+    border-width: .2px;
+    border-color: black;*/
+}
+.tabs .tab a{
+    color:#000;
+    background-color: #eee9e9;
+    margin: 0px 25px 0px 0px;
+}
+/*Black color to the text*/
+
+.tabs .tab a:hover {
+    background-color:#eee;
+    color:#A9A9A9;
+} /*Text color on hover*/
+
+/*.tabs .tab .tab.active a.focus a:focus.active{
+    background-color: rgba(0, 0, 0, 0);
+    color:#000;
+} /*Background and text color when a tab is active*/
+
+/*a:active{
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/*.tabs .indicator {
+    background-color:#000;
+} /*Color of underline*/
+/*.tabs{
+    border-style: solid;
+    border-width: .2px .2px;
+}
+
