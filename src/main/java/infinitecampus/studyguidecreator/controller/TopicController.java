@@ -2,6 +2,7 @@ package infinitecampus.studyguidecreator.controller;
 
 
 
+import com.sun.xml.internal.bind.v2.TODO;
 import infinitecampus.studyguidecreator.model.Topic;
 import infinitecampus.studyguidecreator.service.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,8 @@ public class TopicController {
 
 
         List<Topic> topics = (List<Topic>) topicService.getAllTopics();
+        int numberOfTopics = topics.size();
+        //TODO: research how to display topics size and individual topic position in list.
 
         model.addAttribute("topics", topics);
         return "index";

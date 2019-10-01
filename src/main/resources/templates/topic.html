@@ -4,7 +4,9 @@
 
 </head>
 <body>
+
     <div class="container" th:if="${topic != null}">
+        <p>Topic 1 of 5</p>
         <h3 th:text="${topic.topicName}">
         </h3>
         <h5 th:text="${topic.topicDescription}">
@@ -39,6 +41,7 @@
                                     <div class="input-field col s12 l6">
                                         <input type="text" id="tabName" name="tabName">
                                         <label for="tabName">Tab Name</label>
+                                        <div></div>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -72,13 +75,6 @@
                     </div>
 
                 </li>
-                <li class="tab col s3" id = "editATab">
-
-                    <a href="#tabForm" class= "modal-trigger">
-                        <i class="material-icons">edit</i>
-                    </a>
-                </li>
-
             </ul>
 
             <br>
@@ -89,6 +85,27 @@
 
                     <iframe width = "1200" height = "800" th:src ="${tabItem.tabUrl}"></iframe>
                 </div>
+            <br>
+            <div class="container">
+                <div class="row">
+                    <a class="waves-effect
+                       waves-light btn">
+                            <!--th:href="@{'/topics/' + ${topic.id} + '#' + ${tabitem.id}" -->
+                            <i
+                        class="material-icons right">edit
+                    </i>Edit
+                    </a>
+                    <a class="waves-effect waves-light btn"><i class="material-icons right">delete
+                    </i>Delete
+                    </a>
+                </div>
+            </div>
+            <div class="card">
+                Name: <input type="text" />
+<!--                             th:attrappend="${topic.topicName}"-->
+
+            </div>
+
 
         </div>
     </div>
